@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UILabel{
+public extension UILabel{
     var textHeight:CGFloat{
         if self.text != nil && self.text!.count > 0 {
             let attributes = [NSAttributedString.Key.font: self.font]

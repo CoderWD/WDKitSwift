@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WDKeyChain {
+public class WDKeyChain {
     
     private func getKeychainQuery(service:String) -> NSMutableDictionary {
         return NSMutableDictionary.dictionaryWithValues(forKeys:

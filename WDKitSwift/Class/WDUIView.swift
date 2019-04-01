@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView{
+public extension UIView{
     var height:CGFloat {
         get{
             return self.frame.size.height

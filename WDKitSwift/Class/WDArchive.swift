@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WDArchive {
+public class WDArchive {
     /// 归档
     ///
     /// - Parameter key: <#key description#>

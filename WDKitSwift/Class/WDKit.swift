@@ -11,14 +11,14 @@ import UIKit
 
 
 /// 屏幕宽度
-let SCREEN_W:CGFloat = UIScreen.main.bounds.width
+public let SCREEN_W:CGFloat = UIScreen.main.bounds.width
 
 /// 屏幕高度
-let SCREEN_H:CGFloat = UIScreen.main.bounds.height
+public let SCREEN_H:CGFloat = UIScreen.main.bounds.height
 
 /// keywindows
-let KEY_WINDOW:UIWindow = UIApplication.shared.keyWindow!
+public let KEY_WINDOW:UIWindow = UIApplication.shared.keyWindow!
 
 /// document路径
-let DOCUMENT_PATH:String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+public let DOCUMENT_PATH:String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
 

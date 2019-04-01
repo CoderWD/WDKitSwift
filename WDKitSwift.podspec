@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.swift_version = '4.2'
   s.source       = { :git => "https://github.com/CoderWD/WDKitSwift.git", :tag => "#{s.version}" }
-  s.source_files  = "Classes", "WDKit-Swift/Class/*.{swift}"
-  s.exclude_files = "Classes/Exclude"
-  s.public_header_files = "WDKit-Swift/Class/*.swift"
+  s.source_files  = "Classes", "WDKitSwift/Class/*.{swift}"
+  #s.exclude_files = "Classes/Exclude"
+  #s.public_header_files = "WDKitSwift/Class/*.swift"
 
 end

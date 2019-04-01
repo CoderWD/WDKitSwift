@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-func HEX_COLOR(hex:NSInteger,alpha:CGFloat) ->UIColor{
+public func HEX_COLOR(hex:NSInteger,alpha:CGFloat) ->UIColor{
     return UIColor(red:(((CGFloat)((hex & 0xFF0000) >> 16))/255.0), green: ((CGFloat)((hex & 0xFF00) >> 8))/255.0, blue: ((CGFloat)(hex & 0xFF))/255.0, alpha: alpha)
 }
 
-func HEX_COLOR(hex:NSInteger) ->UIColor{
+public func HEX_COLOR(hex:NSInteger) ->UIColor{
     return HEX_COLOR(hex: hex, alpha: 1.0)
 }

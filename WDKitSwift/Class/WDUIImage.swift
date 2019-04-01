@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIImage{
+public extension UIImage{
     
     /// 根据颜色获取一个像素的图片
     ///
