@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B66B4463225330AA0008B513 /* WDString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B4462225330AA0008B513 /* WDString.swift */; };
+		B66B4465225330BE0008B513 /* WDJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B4464225330BE0008B513 /* WDJson.swift */; };
 		B6961D092251E9E80043271C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6961D082251E9E80043271C /* AppDelegate.swift */; };
 		B6961D0B2251E9E80043271C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6961D0A2251E9E80043271C /* ViewController.swift */; };
 		B6961D0E2251E9E80043271C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6961D0C2251E9E80043271C /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B66B4462225330AA0008B513 /* WDString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDString.swift; sourceTree = "<group>"; };
+		B66B4464225330BE0008B513 /* WDJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDJson.swift; sourceTree = "<group>"; };
 		B6961D052251E9E80043271C /* WDKitSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WDKitSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6961D082251E9E80043271C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6961D0A2251E9E80043271C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				B6961D3D2251EA0A0043271C /* WDUIImage.swift */,
 				B6961D3F2251EA0A0043271C /* WDUILable.swift */,
 				B6961D3A2251EA090043271C /* WDUIView.swift */,
+				B66B4462225330AA0008B513 /* WDString.swift */,
+				B66B4464225330BE0008B513 /* WDJson.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -292,9 +298,11 @@
 				B6961D442251EA0A0043271C /* WDUIImage.swift in Sources */,
 				B6961D452251EA0A0043271C /* WDKeyChain.swift in Sources */,
 				B6961D412251EA0A0043271C /* WDUIView.swift in Sources */,
+				B66B4463225330AA0008B513 /* WDString.swift in Sources */,
 				B6961D422251EA0A0043271C /* WDKit.swift in Sources */,
 				B6961D432251EA0A0043271C /* WDArchive.swift in Sources */,
 				B6961D472251EA0A0043271C /* WDColor.swift in Sources */,
+				B66B4465225330BE0008B513 /* WDJson.swift in Sources */,
 				B6961D462251EA0A0043271C /* WDUILable.swift in Sources */,
 				B6961D092251E9E80043271C /* AppDelegate.swift in Sources */,
 				B6961D112251E9E80043271C /* WDKitSwift.xcdatamodeld in Sources */,

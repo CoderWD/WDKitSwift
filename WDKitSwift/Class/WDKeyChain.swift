@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class WDKeyChain {
+public class WDKeyChain:NSObject {
     
-    private func getKeychainQuery(service:String) -> NSMutableDictionary {
+    private static func getKeychainQuery(service:String) -> NSMutableDictionary {
         return NSMutableDictionary.dictionaryWithValues(forKeys:
             [kSecClassGenericPassword as String,
              kSecClass as String,
@@ -26,8 +26,8 @@ public class WDKeyChain {
     /// - Parameters:
     ///   - key: <#key description#>
     ///   - data: <#data description#>
-    func saveWithKey(key:String,data:Any) {
-        let keychainQuery = self.getKeychainQuery(service: key)
+    static public func saveWithKey(key:String,data:Any) {
+        let keychainQuery = WDKeyChain.getKeychainQuery(service: key)
         SecItemDelete(keychainQuery as CFDictionary)
         keychainQuery[kSecValueData] = NSKeyedArchiver.archivedData(withRootObject: data)
         SecItemAdd(keychainQuery, nil)
@@ -38,8 +38,8 @@ public class WDKeyChain {
     ///
     /// - Parameter key: <#key description#>
     /// - Returns: <#return value description#>
-    func loadWithKey(key:String) -> Any? {
-        let keychainQuery = self.getKeychainQuery(service: key)
+    static public func loadWithKey(key:String) -> Any? {
+        let keychainQuery = WDKeyChain.getKeychainQuery(service: key)
         keychainQuery[kSecReturnData] = kCFBooleanTrue
         keychainQuery[kSecMatchLimit] = kSecMatchLimitOne
         
@@ -55,10 +55,10 @@ public class WDKeyChain {
     /// 删除钥匙串信息
     ///
     /// - Parameter key: <#key description#>
-    func deleteWithKey(key:String) {
-        let keychainQuery = self.getKeychainQuery(service: key)
+    static public func deleteWithKey(key:String) {
+        let keychainQuery = WDKeyChain.getKeychainQuery(service: key)
         SecItemDelete(keychainQuery as CFDictionary)
     }
-
+    
     
 }
