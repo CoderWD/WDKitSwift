@@ -11,8 +11,8 @@ import Foundation
 private class WDJson:NSObject{
     static func toJSONString(_ obj:Any) -> String? {
         if (JSONSerialization.isValidJSONObject(obj)) {
-            let data : NSData! = try? JSONSerialization.data(withJSONObject: obj, options: []) as NSData?
-            let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
+            let data = try? JSONSerialization.data(withJSONObject: obj, options: [])
+            let JSONString = NSString(data:data!,encoding: String.Encoding.utf8.rawValue)
             return JSONString! as String
         }
         return nil
