@@ -11,8 +11,10 @@ import Foundation
 private class WDJson:NSObject{
     static func toJSONString(_ obj:Any) -> String? {
         if (JSONSerialization.isValidJSONObject(obj)) {
-            let data = try? JSONSerialization.data(withJSONObject: obj, options: [])
-            let JSONString = NSString(data:data!,encoding: String.Encoding.utf8.rawValue)
+            guard let data = try? JSONSerialization.data(withJSONObject: obj, options: JSONSerialization.WritingOptions.prettyPrinted) else{
+                return nil
+            }
+            let JSONString = NSString(data:data,encoding: String.Encoding.utf8.rawValue)
             return JSONString! as String
         }
         return nil
