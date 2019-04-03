@@ -7,17 +7,26 @@
 //
 
 import Foundation
+import Security
+
 
 public class WDKeyChain:NSObject {
     
-    private static func getKeychainQuery(service:String) -> NSMutableDictionary {
-        return NSMutableDictionary.dictionaryWithValues(forKeys:
-            [kSecClassGenericPassword as String,
-             kSecClass as String,
-             service,kSecAttrService as String,
-             service,kSecAttrAccount as String,
-             kSecAttrAccessibleAfterFirstUnlock as String,
-             kSecAttrAccessible as String]) as! NSMutableDictionary
+    private static func getKeychainQuery(service:String) -> NSMutableDictionary{
+        let keychainQuery:NSMutableDictionary = NSMutableDictionary.dictionaryWithValues(forKeys:
+            [
+                kSecClassGenericPassword as String,
+                kSecClass as String,
+                service,
+                kSecAttrService as String,
+                service,
+                kSecAttrAccount as String,
+                kSecAttrAccessibleAfterFirstUnlock as String,
+                kSecAttrAccessible as String
+            ]) as! NSMutableDictionary
+        
+        
+        return keychainQuery
     }
     
     
