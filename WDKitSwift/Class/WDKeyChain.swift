@@ -11,22 +11,14 @@ import Security
 
 
 public class WDKeyChain:NSObject {
-    
     private static func getKeychainQuery(service:String) -> NSMutableDictionary{
-        let keychainQuery:NSMutableDictionary = NSMutableDictionary.dictionaryWithValues(forKeys:
-            [
-                kSecClassGenericPassword as String,
-                kSecClass as String,
-                service,
-                kSecAttrService as String,
-                service,
-                kSecAttrAccount as String,
-                kSecAttrAccessibleAfterFirstUnlock as String,
-                kSecAttrAccessible as String
-            ]) as! NSMutableDictionary
-        
-        
-        return keychainQuery
+        let keychainQuery = [
+            kSecClass:kSecClassGenericPassword,
+            kSecAttrService:service,
+            kSecAttrAccount:service,
+            kSecAttrAccessible:kSecAttrAccessibleAfterFirstUnlock
+            ] as [CFString : Any]
+        return keychainQuery as! NSMutableDictionary
     }
     
     
