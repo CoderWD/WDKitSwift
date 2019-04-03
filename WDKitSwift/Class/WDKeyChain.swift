@@ -11,14 +11,14 @@ import Security
 
 
 public class WDKeyChain:NSObject {
-    private static func getKeychainQuery(service:String) -> NSMutableDictionary{
+    private static func getKeychainQuery(service:String) -> Dictionary<CFString, Any>{
         let keychainQuery = [
             kSecClass:kSecClassGenericPassword,
             kSecAttrService:service,
             kSecAttrAccount:service,
             kSecAttrAccessible:kSecAttrAccessibleAfterFirstUnlock
             ] as [CFString : Any]
-        return keychainQuery as! NSMutableDictionary
+        return keychainQuery
     }
     
     
@@ -28,10 +28,10 @@ public class WDKeyChain:NSObject {
     ///   - key: <#key description#>
     ///   - data: <#data description#>
     static public func saveWithKey(key:String,data:Any) {
-        let keychainQuery = WDKeyChain.getKeychainQuery(service: key)
+        var keychainQuery = WDKeyChain.getKeychainQuery(service: key)
         SecItemDelete(keychainQuery as CFDictionary)
         keychainQuery[kSecValueData] = NSKeyedArchiver.archivedData(withRootObject: data)
-        SecItemAdd(keychainQuery, nil)
+        SecItemAdd(keychainQuery as CFDictionary, nil)
     }
     
     
@@ -40,12 +40,12 @@ public class WDKeyChain:NSObject {
     /// - Parameter key: <#key description#>
     /// - Returns: <#return value description#>
     static public func loadWithKey(key:String) -> Any? {
-        let keychainQuery = WDKeyChain.getKeychainQuery(service: key)
+        var keychainQuery = WDKeyChain.getKeychainQuery(service: key)
         keychainQuery[kSecReturnData] = kCFBooleanTrue
         keychainQuery[kSecMatchLimit] = kSecMatchLimitOne
         
         var extractedData: AnyObject?
-        if SecItemCopyMatching(keychainQuery, &extractedData) == noErr {
+        if SecItemCopyMatching(keychainQuery as CFDictionary, &extractedData) == noErr {
             let result = NSKeyedUnarchiver.unarchiveObject(with: extractedData as! Data)
             return result
         }
