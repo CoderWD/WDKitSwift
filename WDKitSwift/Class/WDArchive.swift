@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class WDArchive {
+public class WDArchive:NSObject {
     /// 归档
     ///
     /// - Parameter key: <#key description#>
     /// - Returns: <#return value description#>
-    func archive(object:Any, key:String)->Bool{
-        var path = judgeCreateWDArchiveFolder()!
+    static public func archive(object:Any, key:String)->Bool{
+        var path = WDArchive.judgeCreateWDArchiveFolder()!
         if path.count > 0 {
             path = path + key
             return NSKeyedArchiver.archiveRootObject(object, toFile: path)
@@ -26,8 +26,8 @@ public class WDArchive {
     ///
     /// - Parameter key: <#key description#>
     /// - Returns: <#return value description#>
-    func unarchive(key:String)->Any?{
-        var path = judgeCreateWDArchiveFolder()!
+    static  public func unarchive(key:String)->Any?{
+        var path = WDArchive.judgeCreateWDArchiveFolder()!
         if path.count > 0 {
             path = path + key
             return NSKeyedUnarchiver.unarchiveObject(withFile: path)
@@ -35,10 +35,23 @@ public class WDArchive {
         return nil
     }
     
+    static  public func deleteArchive(key:String)->Bool?{
+        var path = WDArchive.judgeCreateWDArchiveFolder()!
+        path = path + key
+        if FileManager.default.fileExists(atPath: path) {
+            do{
+                try FileManager.default.removeItem(atPath: path)
+            }catch{
+                  return false
+            }
+        }
+        return true
+    }
+    
     
     
     /// 判断归档路径不存在创建
-    private func judgeCreateWDArchiveFolder()->String?{
+    private static func judgeCreateWDArchiveFolder()->String?{
         let path = DOCUMENT_PATH + "/WDArchive/";
         if !FileManager.default.fileExists(atPath: path) {
             do{
